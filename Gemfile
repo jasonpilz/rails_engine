@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 gem 'rails', '4.2.5'
 gem 'pg', '~> 0.15'
 gem 'sass-rails', '~> 5.0'
@@ -14,11 +13,9 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
-
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-
 gem 'thin'
+gem 'responders'
+gem 'database_cleaner'
 
 group :production do
   gem 'rails_12factor'
@@ -30,6 +27,7 @@ group :development, :test do
   gem 'pry-state'
   gem 'pry-byebug'
   gem 'railroady'
+  gem 'simplecov'
 end
 
 group :development do

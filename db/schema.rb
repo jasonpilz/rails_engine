@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160104225146) do
+ActiveRecord::Schema.define(version: 20160105010514) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20160104225146) do
 
   create_table "invoice_items", force: :cascade do |t|
     t.integer  "quantity"
-    t.integer  "unit_price"
+    t.decimal  "unit_price"
     t.integer  "invoice_id"
     t.integer  "item_id"
     t.datetime "created_at", null: false
@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 20160104225146) do
   create_table "items", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
-    t.integer  "unit_price"
+    t.decimal  "unit_price"
     t.integer  "merchant_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
@@ -64,12 +64,11 @@ ActiveRecord::Schema.define(version: 20160104225146) do
   end
 
   create_table "transactions", force: :cascade do |t|
-    t.integer  "credit_card_number",          limit: 8
-    t.date     "credit_card_expiration_date"
+    t.string   "credit_card_number"
     t.string   "result"
     t.integer  "invoice_id"
-    t.datetime "created_at",                            null: false
-    t.datetime "updated_at",                            null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
   add_index "transactions", ["invoice_id"], name: "index_transactions_on_invoice_id", using: :btree

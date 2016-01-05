@@ -6,4 +6,8 @@ class Item < ActiveRecord::Base
   def convert_to_dollars
     self.unit_price = unit_price / 100.00
   end
+
+  def self.random
+    order.("RANDOM()").first
+  end
 end

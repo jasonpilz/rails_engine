@@ -79,7 +79,6 @@ private
     transactions.each do |transaction|
       transaction = Transaction.create!(id: transaction[:id],
                                          credit_card_number: transaction[:credit_card_number],
-                                         credit_card_expiration_date: transaction[:credit_card_expiration_date],
                                          result: transaction[:result],
                                          invoice_id: transaction[:invoice_id],
                                          created_at: transaction[:created_at],

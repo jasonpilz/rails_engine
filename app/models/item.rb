@@ -2,7 +2,6 @@ class Item < ActiveRecord::Base
   default_scope -> { order('id DESC') }
 
   has_many :invoice_items
-
   belongs_to :merchant
 
   before_save :convert_to_dollars

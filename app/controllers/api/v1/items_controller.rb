@@ -18,7 +18,7 @@ class Api::V1::ItemsController < ApplicationController
   end
 
   def random
-    respond_with Item.random
+    respond_with Item.order("RANDOM()").first
   end
 
   private

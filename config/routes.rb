@@ -14,6 +14,7 @@ Rails.application.routes.draw do
       resources :merchants, only: [:index, :show], defaults: {format: :json} do
         resources :items, only: [:index], module: "merchants", defaults: {format: :json}
         resources :invoices, only: [:index], module: "merchants", defaults: {format: :json}
+        resource :revenue, only: [:show], module: "merchants", defaults: {format: :json}
         collection do
           get 'find'
           get 'find_all'
@@ -43,6 +44,10 @@ Rails.application.routes.draw do
           get 'random'
         end
       end
+      namespace :items do
+        resource :most_revenue, only: [:show], module: "items", defaults: {format: :json}
+      end
+
 
       resources :invoice_items, only: [:index, :show], defaults: {format: :json} do
         resource :invoice, only: [:show], module: "invoice_items", defaults: {format: :json}

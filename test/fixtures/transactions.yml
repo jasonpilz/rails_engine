@@ -2,12 +2,15 @@
 
 one:
   credit_card_number: 1
-  credit_card_expiration_date: 2016-01-04
-  result: MyString
-  invoice_id: 
+  result: Failure
+  invoice_id: 5
 
 two:
   credit_card_number: 1
-  credit_card_expiration_date: 2016-01-04
-  result: MyString
-  invoice_id: 
+  result: Success
+  invoice_id: 4
+
+three:
+  credit_card_number: 1
+  result: Success
+  invoice_id: 5

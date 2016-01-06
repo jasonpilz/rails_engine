@@ -3,11 +3,17 @@
 one:
   quantity: 1
   unit_price: 9.99
-  invoice_id: 
-  item_id: 
+  invoice_id: 4
+  item_id: 7
 
 two:
   quantity: 1
   unit_price: 9.99
-  invoice_id: 
-  item_id: 
+  invoice_id: 3
+  item_id: 1
+
+three:
+  quantity: 3
+  unit_price: 19.99
+  invoice_id: 9
+  item_id: 2

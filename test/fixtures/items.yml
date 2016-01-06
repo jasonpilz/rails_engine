@@ -1,13 +1,19 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
+  name: Dog
   description: MyString
   unit_price: 1
-  merchant_id: 
+  merchant_id: 5
 
 two:
-  name: MyString
+  name: Dog
   description: MyString
   unit_price: 1
-  merchant_id: 
+  merchant_id: 8
+
+three:
+  name: Car
+  description: Fast
+  unit_price: 1
+  merchant_id: 8

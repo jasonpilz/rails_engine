@@ -1,11 +1,16 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  status: MyString
-  merchant_id: 
-  customer_id: 
+  status: Shipped
+  merchant_id: 4
+  customer_id: 2
 
 two:
+  status: Shipped
+  merchant_id: 7
+  customer_id: 1
+
+three:
   status: MyString
-  merchant_id: 
-  customer_id: 
+  merchant_id: 4
+  customer_id: 5

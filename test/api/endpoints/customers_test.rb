@@ -2,20 +2,20 @@ require './test/test_helper'
 
 class CustomersApiTest < ApiTest
 
-  test "loads individual customers" do
+  # test "loads individual customers" do
 
-  end
+  # end
 
-  test "loads all customers" do
+  # test "loads all customers" do
 
-  end
+  # end
 
-  test "finds customer by id" do
+  # test "finds customer by id" do
 
-  end
+  # end
 
-  test "finds customer by first name" do
+  # test "finds customer by first name" do
 
-  end
+  # end
 
 end

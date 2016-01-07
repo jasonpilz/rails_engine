@@ -11,6 +11,6 @@ class InvoiceItem < ActiveRecord::Base
   end
 
   def self.random
-    order.("RANDOM()").first
+    order("RANDOM()").first
   end
 end

@@ -1,9 +1,11 @@
 class Api::V1::Merchants::RevenuesController < ApplicationController
   respond_to :json
 
-  # returns the total revenue for that merchant across all transactions (not couting failed charges)
   def show
-    # respond_with Merchant.find(params["merchant_id"]).invoices.joins(:transactions).where(transactions: {status: "success"})
-    respond_with Merchant.find(params["merchant_id"]).transactions.where(transactions: {result: "success"})
+    if params[:date]
+      respond_with Merchant.revenue_by_date(params[:date], params[:merchant_id])
+    else
+      respond_with Merchant.revenue(params[:merchant_id])
+    end
   end
 end

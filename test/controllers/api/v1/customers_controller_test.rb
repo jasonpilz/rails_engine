@@ -88,6 +88,7 @@ class Api::V1::CustomersControllerTest < ActionController::TestCase
     get :random, format: :json
     json_response = JSON.parse(response.body)
 
-    assert_equal 5, json_response.count
+    assert json_response["first_name"]
+    assert json_response["last_name"]
   end
 end

@@ -18,7 +18,7 @@ class Api::V1::TransactionsController < ApplicationController
   end
 
   def random
-    respond_with Transaction.order("RANDOM()").first
+    respond_with Transaction.random
   end
 
   private

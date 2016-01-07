@@ -4,6 +4,7 @@ Rails.application.routes.draw do
       resources :customers, only: [:index, :show], defaults: {format: :json} do
         resources :invoices, only: [:index], module: "customers", defaults: {format: :json}
         resources :transactions, only: [:index], module: "customers", defaults: {format: :json}
+        resource :favorite_merchant, only: [:show], module: "customers", defaults: {format: :json}
         collection do
           get 'find'
           get 'find_all'
@@ -15,10 +16,15 @@ Rails.application.routes.draw do
         resources :items, only: [:index], module: "merchants", defaults: {format: :json}
         resources :invoices, only: [:index], module: "merchants", defaults: {format: :json}
         resource :revenue, only: [:show], module: "merchants", defaults: {format: :json}
+        resource :favorite_customer, only: [:show], module: "merchants", defaults: {format: :json}
+        resource :customers_with_pending_invoices, only: [:show], module: "merchants", defaults: {format: :json}
         collection do
           get 'find'
           get 'find_all'
           get 'random'
+          get 'revenue',         to: 'merchants/merchant_revenues#show'
+          get 'most_revenue',    to: 'merchants/most_revenues#show'
+          get 'most_items',      to: 'merchants/most_items#show'
         end
       end
 
@@ -38,16 +44,15 @@ Rails.application.routes.draw do
       resources :items, only: [:index, :show], defaults: {format: :json} do
         resources :invoice_items, only: [:index], module: "items", defaults: {format: :json}
         resource :merchant, only: [:show], module: "items", defaults: {format: :json}
+        resource :best_day, only: [:show], module: "items", defaults: {format: :json}
         collection do
           get 'find'
           get 'find_all'
           get 'random'
+          get 'most_revenue',    to: 'items/most_revenues#show'
+          get 'most_items',      to: 'items/most_items#show'
         end
       end
-      namespace :items do
-        resource :most_revenue, only: [:show], module: "items", defaults: {format: :json}
-      end
-
 
       resources :invoice_items, only: [:index, :show], defaults: {format: :json} do
         resource :invoice, only: [:show], module: "invoice_items", defaults: {format: :json}

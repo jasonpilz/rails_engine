@@ -81,6 +81,7 @@ class Api::V1::InvoiceItemsControllerTest < ActionController::TestCase
     get :random, format: :json
     json_response = JSON.parse(response.body)
 
-    assert_equal 7, json_response.count
+    assert json_response["unit_price"]
+    assert json_response["quantity"]
   end
 end

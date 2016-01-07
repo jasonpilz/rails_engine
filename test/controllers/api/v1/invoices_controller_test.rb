@@ -80,6 +80,7 @@ class Api::V1::InvoicesControllerTest < ActionController::TestCase
     get :random, format: :json
     json_response = JSON.parse(response.body)
 
-    assert_equal 6, json_response.count
+    assert json_response["status"]
+    assert json_response["merchant_id"]
   end
 end

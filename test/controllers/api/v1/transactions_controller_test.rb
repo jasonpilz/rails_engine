@@ -81,6 +81,7 @@ class Api::V1::TransactionsControllerTest < ActionController::TestCase
     get :random, format: :json
     json_response = JSON.parse(response.body)
 
-    assert_equal 6, json_response.count
+    assert json_response["credit_card_number"]
+    assert json_response["result"]
   end
 end

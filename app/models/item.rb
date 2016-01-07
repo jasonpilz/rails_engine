@@ -11,6 +11,14 @@ class Item < ActiveRecord::Base
   end
 
   def self.random
-    order.("RANDOM()").first
+    order("RANDOM()").first
+  end
+
+  def self.most_revenue_items(quantity)
+    Item.select("items.*, count(invoice_items.unit_price * invoice_items.quantity) AS item_revenue")
+        .joins(invoice_items: [invoice: :transactions])
+        .where("transactions.result = ?", "success")
+        .order("item_revenue DESC")
+        .take(quantity)
   end
 end

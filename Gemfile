@@ -26,6 +26,7 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'railroady'
   gem 'simplecov'
+  gem 'shoulda'
 end
 
 group :development do

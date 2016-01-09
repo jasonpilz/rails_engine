@@ -10,6 +10,7 @@ class Merchant < ActiveRecord::Base
     order("RANDOM()").first
   end
 
+  # use serializer to format
   def self.revenue_by_date(date, id)
     { "revenue" => joins(invoices: [:transactions, :invoice_items])
       .where("transactions.result = ? AND merchants.id = ? AND invoices.created_at = ?", "success", id, date)
